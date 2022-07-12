@@ -1,0 +1,35 @@
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+    <p>
+        Welcome to the TODO list app
+    </p>
+    {% if tasks %}
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <h3>
+                        <a href="{% url 'page-todo-detail' task.pk %}">
+                            {{ task.title }}:
+                        </a>
+                    </h3>
+                    {{ task.details }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>
+            There are no TODO tasks available to show.
+        </h2>
+    {% endif %}
+    <div>
+        <a href="{% url 'page-todo-new' %}">
+            <button
+                class="btn btn-outline-info"
+                type=""
+            >
+                Create new task?
+            </button>
+        </a>
+    </div>
+{% endblock %}

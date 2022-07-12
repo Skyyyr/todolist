@@ -1,0 +1,31 @@
+{% extends 'todo_app/base.html' %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">
+                DELTE TODO Task?
+            </legend>
+        </fieldset>
+        <h1>
+            Title: {{ todotask.title }}
+        </h1>
+        Details: {{ todotask.details }}
+        <div class="form-group">
+            <button
+                    class="btn btn-outline-info"
+                    type="submit"
+            >
+                Delete Task
+            </button>
+        </div>
+    </form>
+    <a href="{% url 'page-home' %}">
+        <button
+                class="btn btn-outline-info"
+                type=""
+        >
+            Cancel
+        </button>
+    </a>
+{% endblock %}

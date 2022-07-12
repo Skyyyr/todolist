@@ -1,0 +1,52 @@
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+    <p>
+        Welcome to the TODO list app
+    </p>
+    <div class="container">
+        <h1>TASK:
+            <p>
+                {{ object.title }}
+            </p>
+        </h1>
+        <h3>
+            Details:
+        </h3>
+        {{ object.details }}
+    </div>
+    <div>
+        <a href="{% url 'page-todo-new' %}">
+            <button
+                class="btn btn-outline-info"
+                type=""
+            >
+                Create new task?
+            </button>
+        </a>
+        <a href="{% url 'page-home' %}">
+            <button
+                class="btn btn-outline-info"
+                type=""
+            >
+                Home
+            </button>
+        </a>
+        <a href="{% url 'page-todo-update' object.id %}">
+            <button
+                class="btn btn-outline-info"
+                type=""
+            >
+                Update
+            </button>
+        </a>
+        <a href="{% url 'page-todo-delete' object.id %}">
+            <button
+                class="btn btn-outline-info"
+                type=""
+            >
+                Delete
+            </button>
+        </a>
+    </div>
+{% endblock %}
